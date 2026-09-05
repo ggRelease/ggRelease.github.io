@@ -1,0 +1,61 @@
+# grelease-docs — 站点配置（基于 OINK Starter）
+# 单语言（简体中文），面向 grelease 灰度发布框架的使用者与维护者。
+
+title: grelease
+baseURL: https://docs.grelease.dev/ # TODO: 待确定实际部署域名后修改（本轮范围不含上线部署）
+defaultContentLanguage: zh
+enableGitInfo: true
+enableRobotsTXT: true
+enableEmoji: true
+timeZone: Asia/Shanghai
+
+languages:
+  zh:
+    label: 简体中文
+    locale: zh-CN
+    weight: 1
+    title: grelease
+    hasCJKLanguage: true
+    params:
+      description: grelease 灰度发布前后端一站式框架文档：使用指南与维护者指南。
+
+# OINK's Markdown components depend on these three Goldmark settings.
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    parser:
+      attribute:
+        block: true
+      wrapStandAloneImageWithinParagraph: false
+  highlight:
+    noClasses: false
+
+outputs:
+  home: [HTML, RSS, markdown, LLMS]
+  page: [HTML, markdown]
+  section: [HTML, RSS, print, markdown]
+
+params:
+  offline_search: true
+  copyright:
+    authors: grelease contributors
+    from_year: 2026
+  footer_center_info: ''
+  ui:
+    dark_mode: true
+    section_index: cards
+    sidebar_menu_foldable: true
+    sidebar_icon_policy: groups
+    backlinks: true
+
+  # 源码托管在 grelease-docs 仓库；grelease 主体代码在 huyiyu/grelease
+  github_repo: https://github.com/huyiyu/grelease-docs
+  github_branch: main
+
+module:
+  imports:
+    - path: github.com/pgsty/oink
+  hugoVersion:
+    extended: true
+    min: 0.160.1

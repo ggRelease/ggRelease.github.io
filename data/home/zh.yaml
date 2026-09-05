@@ -1,0 +1,39 @@
+sections: [hero, cards, cta]
+
+hero:
+  align: center
+  eyebrow: 灰度发布 · 蓝绿部署
+  title_lines:
+    - words: [{ text: grelease }]
+    - words: [{ text: 灰度发布前后端一站式框架。 }]
+  lead: >-
+    以 Spring Cloud Gateway 为统一流量入口，覆盖页面与 API 两种流量的灰度发布与蓝绿部署，
+    配置写 etcd、网关只监听 etcd。
+  actions:
+    - { label: 使用指南, url: docs/guide/, icon: fa-solid fa-book, style: primary }
+    - { label: 维护者指南, url: docs/maintain/, icon: fa-solid fa-code-branch, style: ghost }
+
+cards:
+  eyebrow: 两类读者，两个入口
+  title: 按你的角色开始阅读
+  columns: 3
+  items:
+    - title: 使用指南
+      desc: 接入 grelease 的团队从这里开始：快速开始、CLI、Console、API 契约、部署。
+      icon: fa-solid fa-rocket
+      url: docs/guide/
+    - title: 维护者指南
+      desc: 给 grelease 自身的贡献者：架构总览、领域模型、ADR 归档、开发与发布工作流。
+      icon: fa-solid fa-wrench
+      url: docs/maintain/
+    - title: 术语参考
+      desc: 灰度决策、放量速率、错误率、gtid 去重等核心概念的统一定义。
+      icon: fa-solid fa-book-open
+      url: docs/reference/
+
+cta:
+  title: 想先看代码？
+  text: grelease 主仓库承载全部模块实现与 ADR 源文档。
+  label: 前往 GitHub
+  url: https://github.com/huyiyu/grelease
+  style: primary
