@@ -2,7 +2,7 @@
 # 单语言（简体中文），面向 grelease 灰度发布框架的使用者与维护者。
 
 title: grelease
-baseURL: https://grelease.github.io/
+baseURL: https://gatewaygreyrelease.github.io/
 defaultContentLanguage: zh
 enableGitInfo: true
 enableRobotsTXT: true
