@@ -1,0 +1,49 @@
+# OINK/Hugo 构建 → GitHub Pages（ADR 0014 修订：grelease.github.io）
+name: Deploy Docs to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # OINK 主题以 Hugo Module（go.mod）分发，需要 Go 拉取主题
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.0'
+
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.160.1'
+          extended: true
+
+      - name: 构建（含 llms.txt 与逐页 Markdown 镜像）
+        run: hugo --gc --minify
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

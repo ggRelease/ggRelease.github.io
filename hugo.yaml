@@ -2,7 +2,7 @@
 # 单语言（简体中文），面向 grelease 灰度发布框架的使用者与维护者。
 
 title: grelease
-baseURL: https://docs.grelease.dev/ # TODO: 待确定实际部署域名后修改（本轮范围不含上线部署）
+baseURL: https://grelease.github.io/
 defaultContentLanguage: zh
 enableGitInfo: true
 enableRobotsTXT: true
